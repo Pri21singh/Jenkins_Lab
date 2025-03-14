@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Pri21singh/Jenkins_Lab'
+                git branch: 'main', url: 'https://github.com/Pri21singh/Jenkins_Lab.git'
             }
         }
         stage('Build') {
@@ -16,12 +16,15 @@ pipeline {
                 echo 'Tests looks good!!'
             }
         }
-        stage('Notify') {
-            steps {
-                mail to: 'singpri21@gmail.com',
-                     subject: "Jenkins Build: ${currentBuild.currentResult}",
-                     body: "Build ${currentBuild.displayName} finished with status: ${currentBuild.currentResult}"
-            }
-        }
+       stage('Notify') {
+    steps {
+        emailext subject: "Jenkins Build: ${currentBuild.currentResult}",
+                 body: "Build ${currentBuild.displayName} finished with status: ${currentBuild.currentResult}",
+                 to: 'singpri21@gmail.com',
+                 replyTo: 'priyasingh2103@gmail.com',
+                 attachLog: true
+    }
+}
+
     }
 }
