@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Notify') {
             steps {
-                mail to: 'psingh0481@conestogac.on.ca',
+                mail to: 'singpri21@gmail.com',
                      subject: "Jenkins Build: ${currentBuild.currentResult}",
                      body: "Build ${currentBuild.displayName} finished with status: ${currentBuild.currentResult}"
             }
