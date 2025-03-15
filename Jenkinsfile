@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Here is my App..'
+                echo 'Set up the Email Notification...!!'
             }
         }
         stage('Test') {
