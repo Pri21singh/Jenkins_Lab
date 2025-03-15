@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Set up the Email Notification...!!'
+                echo 'Trigger the Email Notification...!!'
             }
         }
         stage('Test') {
